@@ -1,0 +1,5 @@
+# Ignorowanie katalogu node_modules - zależności projektu
+node_modules/
+
+# Ignorowanie plików zależności pakietów
+package-lock.json
