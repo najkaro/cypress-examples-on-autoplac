@@ -3,3 +3,6 @@ node_modules/
 
 # Ignorowanie plików zależności pakietów
 package-lock.json
+
+#Ignorowanie danych marek i modelów
+brands-and-models.data.js
