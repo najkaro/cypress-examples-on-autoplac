@@ -31,8 +31,12 @@ describe('Main Page', () => {
       });
       cy.get('.header__menu').children().eq(3).invoke('attr', 'href').should('contain', headerData.postAdPage);
   
-        //Aktualności
-        cy.get('.header__menu').children().eq(3).find('img').invoke('attr', 'alt').should('contain', headerData.newsButton)
+      //Ulubione
+      cy.get('.header__menu').children().eq(4).find('img').invoke('attr', 'alt').should('contain', headerData.favoriteButton)
+      cy.get('.header__menu').children().eq(4).invoke('attr', 'href').should('contain', headerData.favoritePage) 
+
+      //Aktualności
+      cy.get('.header__menu').children().eq(3).find('img').invoke('attr', 'alt').should('contain', headerData.newsButton)
         
         // Zaloguj
         cy.get('.header__menu').children().eq(4).invoke('text').then(text => {
