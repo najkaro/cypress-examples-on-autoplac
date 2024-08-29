@@ -13,12 +13,12 @@ describe('Main Page', () => {
       });
       cy.get('.header__menu').children().eq(0).invoke('attr', 'href').should('contain', headerData.blogPage);      
       
-        //Moje poszukiwania
-        cy.get('.header__menu').children().eq(1).invoke('text').then(text => {
-          expect(text).to.equal(headerData.mySearchButton)
-        });
-        cy.get('.header__menu').children().eq(1).invoke('attr', 'href').should('contain', headerData.mySearchPage);
-  
+      //Wyceń auto
+      cy.get('.header__menu').children().eq(1).invoke('text').then(text => {
+        expect(text).to.contain(headerData.estimateCarButton)
+      });
+      cy.get('.header__menu').children().eq(1).invoke('attr', 'href').should('contain', headerData.estimateCarPage);
+     
         //Wystaw ogłoszenie
         cy.get('.header__menu').children().eq(2).invoke('text').then(text => {
           expect(text).to.equal(headerData.postAdButton)
