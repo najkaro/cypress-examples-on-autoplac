@@ -10,7 +10,8 @@ export const headerData =
     "postAdPage": "/wystaw",
     "favoriteButton": "Dodaj do ulubionych",
     "favoritePage": "/ogloszenia/ulubione",
+    "newsButton": "Aktualności",
     "logInButton": "Zaloguj",
     "logInPage": "/auth/login",
-    "newsButton": "Aktualności",
+    
 }

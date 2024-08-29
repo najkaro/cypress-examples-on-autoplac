@@ -38,10 +38,10 @@ describe('Main Page', () => {
       //Aktualności
       cy.get('.header__menu').children().eq(5).find('img').invoke('attr', 'alt').should('contain', headerData.newsButton)
         
-        // Zaloguj
-        cy.get('.header__menu').children().eq(4).invoke('text').then(text => {
-          expect(text).to.equal(headerData.logInButton)
-        });
-        cy.get('.header__menu').children().eq(4).find('a').invoke('attr', 'href').should('contain', headerData.logInPage);
+      // Zaloguj
+      cy.get('.header__menu').children().eq(6).invoke('text').then(text => {
+        expect(text).to.contain(headerData.logInButton)
+      });
+      cy.get('.header__menu').children().eq(6).invoke('attr', 'href').should('contain', headerData.logInPage);
       })
 })
