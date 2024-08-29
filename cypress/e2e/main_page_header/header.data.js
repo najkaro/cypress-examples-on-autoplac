@@ -1,7 +1,7 @@
 export const headerData =
 {
-    "radioButton": "Radio Yanosik",
-    "radioPage": "https://radioyanosik.pl",
+    "blogButton": "Blog",
+    "blogPage": "/blog",
     "mySearchButton": "Moje poszukiwania",
     "mySearchPage": "/ogloszenia/ulubione",
     "postAdButton": "Wystaw za 0 zł",

@@ -7,12 +7,12 @@ describe('Main Page', () => {
       cy.visit('/')
     })
       it('should show expected text and should redirect to proper pages', () => {
-        //Radio Yanosik
-        cy.get('.header__menu').children().eq(0).invoke('text').then(text => {
-          expect(text).to.equal(headerData.radioButton)
-        });
-        cy.get('.header__menu').children().eq(0).invoke('attr', 'href').should('contain', headerData.radioPage);
-  
+      //Blog
+      cy.get('.header__menu').children().eq(0).invoke('text').then(text => {
+        expect(text).to.equal(headerData.blogButton)
+      });
+      cy.get('.header__menu').children().eq(0).invoke('attr', 'href').should('contain', headerData.blogPage);      
+      
         //Moje poszukiwania
         cy.get('.header__menu').children().eq(1).invoke('text').then(text => {
           expect(text).to.equal(headerData.mySearchButton)
