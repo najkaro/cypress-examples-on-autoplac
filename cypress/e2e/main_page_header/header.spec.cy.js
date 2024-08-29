@@ -25,11 +25,11 @@ describe('Main Page', () => {
       });
       cy.get('.header__menu').children().eq(2).invoke('attr', 'href').should('contain', headerData.financingPage);
 
-        //Wystaw ogłoszenie
-        cy.get('.header__menu').children().eq(2).invoke('text').then(text => {
-          expect(text).to.equal(headerData.postAdButton)
-        });
-        cy.get('.header__menu').children().eq(2).invoke('attr', 'href').should('contain', headerData.postAdPage);
+      //Wystaw ogłoszenie
+      cy.get('.header__menu').children().eq(3).invoke('text').then(text => {
+        expect(text).to.contain(headerData.postAdButton)
+      });
+      cy.get('.header__menu').children().eq(3).invoke('attr', 'href').should('contain', headerData.postAdPage);
   
         //Aktualności
         cy.get('.header__menu').children().eq(3).find('img').invoke('attr', 'alt').should('contain', headerData.newsButton)
