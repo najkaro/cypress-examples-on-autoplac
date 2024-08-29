@@ -7,7 +7,7 @@ module.exports = defineConfig({
   video: false,
   e2e: {
     baseUrl: 'https://autoplac.pl/',
-    specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
+    specPattern: '**/*.spec.cy.js',
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
