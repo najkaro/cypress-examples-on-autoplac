@@ -19,6 +19,12 @@ describe('Main Page', () => {
       });
       cy.get('.header__menu').children().eq(1).invoke('attr', 'href').should('contain', headerData.estimateCarPage);
      
+      //Finansowanie
+      cy.get('.header__menu').children().eq(2).invoke('text').then(text => {
+        expect(text).to.contain(headerData.financingButton)
+      });
+      cy.get('.header__menu').children().eq(2).invoke('attr', 'href').should('contain', headerData.financingPage);
+
         //Wystaw ogłoszenie
         cy.get('.header__menu').children().eq(2).invoke('text').then(text => {
           expect(text).to.equal(headerData.postAdButton)
