@@ -6,3 +6,6 @@ package-lock.json
 
 #Ignorowanie danych marek i modelów
 brands-and-models.data.js
+
+#Ignorowanie danych logowania
+login-page.data.js
