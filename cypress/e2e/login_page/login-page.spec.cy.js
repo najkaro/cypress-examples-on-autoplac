@@ -25,5 +25,12 @@ describe ('Login page', () => {
             cy.get('.login__links-wrapper').should('be.visible').children().eq(0).click()
             cy.url().should('include', loginPageData.resetPasswordUrl)
         })
+
+        it('should redirect to register page', () => {
+            cy.get('.login__links-wrapper').children().eq(1).invoke('text').should('contain', loginPageData.registerInfo)
+            cy.get('.login__links-wrapper').should('be.visible').children().eq(1).click()
+            cy.url().should('include', loginPageData.registerUrl)
+        })
+                
     })
 })
