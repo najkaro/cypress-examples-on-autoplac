@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { getErrorMessage, getSubmitButton } from "./login-page-actions"
+import { getErrorMessage, getPasswordField, getPhoneNumberField, getSubmitButton } from "./login-page-actions"
 import { loginPageData } from "./login-page.data"
 
 describe ('Login page', () => {
@@ -38,6 +38,14 @@ describe ('Login page', () => {
             getErrorMessage().eq(0).invoke('text').should('include', loginPageData.emptyPhoneNumberError)
             getErrorMessage().eq(1).should('contain', loginPageData.emptyPasswordError)
             cy.url().should('include', loginPageData.loginUrl)
-        })  
+        }) 
+        
+        it('should login successfully using valid phone number and password', () => {
+            getPhoneNumberField().type(loginPageData.phoneNumber)
+            getPasswordField().type(loginPageData.password)
+            getSubmitButton().click()
+            cy.url().should('not.include', loginPageData.loginUrl)
+            cy.get('.header__menu').children().eq(6).invoke('text').should('contain', loginPageData.myAccount)         
+        })        
     })
 })
