@@ -19,5 +19,11 @@ describe ('Login page', () => {
             cy.get('.ng-formfield > label').eq(1).invoke('text').should('contain', loginPageData.passwordFieldLabel)
             getSubmitButton().invoke('text').should('contain', loginPageData.submitButton)
         })
+
+        it('should redirect to forget password page', () => {
+            cy.get('.login__links-wrapper').children().eq(0).invoke('text').should('contain', loginPageData.forgetPasswordInfo)
+            cy.get('.login__links-wrapper').should('be.visible').children().eq(0).click()
+            cy.url().should('include', loginPageData.resetPasswordUrl)
+        })
     })
 })
