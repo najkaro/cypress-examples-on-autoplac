@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { getSubmitButton } from "./login-page-actions"
+import { getErrorMessage, getSubmitButton } from "./login-page-actions"
 import { loginPageData } from "./login-page.data"
 
 describe ('Login page', () => {
@@ -13,7 +13,7 @@ describe ('Login page', () => {
     beforeEach('open login page', () => {
         cy.visit('/auth/login')
     })
-    context('login form', () => {
+    context('login form elements', () => {
         it('should have proper elements', () => {
             cy.get('.ng-formfield > label').eq(0).invoke('text').should('contain', loginPageData.phoneNumberFieldLabel)
             cy.get('.ng-formfield > label').eq(1).invoke('text').should('contain', loginPageData.passwordFieldLabel)
@@ -30,7 +30,14 @@ describe ('Login page', () => {
             cy.get('.login__links-wrapper').children().eq(1).invoke('text').should('contain', loginPageData.registerInfo)
             cy.get('.login__links-wrapper').should('be.visible').children().eq(1).click()
             cy.url().should('include', loginPageData.registerUrl)
-        })
-                
+        })      
+    })
+    context.only('login actions', () => {
+        it('should not allow to login when empty fields', () => {
+            cy.get('button[type="submit"]').click()
+            getErrorMessage().eq(0).invoke('text').should('include', loginPageData.emptyPhoneNumberError)
+            getErrorMessage().eq(1).should('contain', loginPageData.emptyPasswordError)
+            cy.url().should('include', loginPageData.loginUrl)
+        })  
     })
 })
