@@ -75,5 +75,17 @@ describe ('Login page', () => {
             cy.get('.header__menu').children().eq(4).invoke('text').should('not.contain', loginPageData.myAccount)
             getInvalidDataPopup()
         })
+
+        it('should display an error message when password is not provided', () => {
+            getPhoneNumberField().type(loginPageData.phoneNumber)
+            getSubmitButton().click()
+            getErrorMessage().should('contain', loginPageData.emptyPasswordError) 
+        })
+
+        it('should display an error message when phone number is not provided', () => {
+            getPasswordField().type(loginPageData.password)
+            getSubmitButton().click()
+            getErrorMessage().should('contain', loginPageData.emptyPhoneNumberError)        
+        })
     })
 })
