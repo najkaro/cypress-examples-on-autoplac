@@ -15,3 +15,13 @@ export function getPhoneNumberField() {
 export function getPasswordField() {
     return cy.get('.ng-formfield > input')
 }
+
+export function closePrivacyChoicesPopup() {
+    cy.get('.unic-modal-container').should('be.visible')
+    cy.contains('Zgadzam się i kontynuuj').click()
+    cy.get('.unic-modal-container').should('not.exist')
+}
+
+export function getInvalidDataPopup() {
+    cy.get('.snackbar__container').should('be.visible').contains(loginPageData.invalidDataPopup)         
+}
