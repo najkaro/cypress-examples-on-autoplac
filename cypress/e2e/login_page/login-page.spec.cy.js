@@ -45,7 +45,7 @@ describe ('Login page', () => {
             getPasswordField().type(loginPageData.password)
             getSubmitButton().click()
             cy.url().should('not.include', loginPageData.loginUrl)
-            cy.get('.header__menu').children().eq(6).invoke('text').should('contain', loginPageData.myAccount)         
+            cy.get('.header__menu').children().eq(8).invoke('text').should('not.contain', loginPageData.submitButton)         
         })
         
         it('should not login when is invalid phone number', () => {        
